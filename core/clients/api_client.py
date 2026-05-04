@@ -74,6 +74,8 @@ class APIClient:
             url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}"
             response = self.session.get(url, timeout=Timeouts.TIMEOUT)
             response.raise_for_status()
+        with allure.step("Assert status code"):
+            assert response.status_code == 200, f"Expected status_code 200 but got {response.status_code}"
         return response.json()
 
 
