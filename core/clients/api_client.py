@@ -73,7 +73,8 @@ class APIClient:
         with allure.step("Get booking by id"):
             url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}/{booking_id}"
             response = self.session.get(url, timeout=Timeouts.TIMEOUT)
-        return response
+            response.raise_for_status()
+        return response.json()
 
 
 
