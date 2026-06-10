@@ -63,7 +63,7 @@ def test_ping_different_code(api_client, mocker):
 
 @allure.feature("Test Ping")
 @allure.story("Test timeouts")
-def test_test_timeouts(api_client, mocker):
+def test_timeouts(api_client, mocker):
     mocker.patch.object(api_client.session, "get", side_effect = requests.Timeout)
     with pytest.raises(requests.Timeout):
         api_client.ping()

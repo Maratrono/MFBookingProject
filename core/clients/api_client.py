@@ -125,3 +125,11 @@ class APIClient:
             assert response.status_code == 200, f"Excepted status_code 200 but got {response.status_code}"
             return response.json()
 
+    def create_booking_with_error(self, booking_data):
+        with allure.step("Create booking with error"):
+            url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT.value}"
+            response = self.session.post(url, json = booking_data)
+            return response
+
+
+
