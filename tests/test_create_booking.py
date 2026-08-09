@@ -132,7 +132,7 @@ def test_create_booking_checkin_checkout_equal(api_client):
 @allure.story("Negative create booking: checkin>checkout")
 def test_create_booking_checkin_later_than_checkout(api_client):
     booking_data = {
-    "firstname": "Ivan",
+    "firstname": "Igor",
     "lastname": "Petrov",
     "totalprice": 222,
     "depositpaid": True,
